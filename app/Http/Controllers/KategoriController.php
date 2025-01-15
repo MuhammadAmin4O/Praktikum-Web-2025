@@ -15,6 +15,7 @@ use Illuminate\Http\RedirectResponse;
 //import Http Request
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class KategoriController extends Controller
 {
@@ -117,5 +118,29 @@ class KategoriController extends Controller
         $kategori->delete();
         //redirect to index
         return redirect()->route('kategori.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function printPdfkategori()
+    {
+        $kategoris = Kategori::get();
+        $data = [
+            'title' => 'LIST KATEGORI',
+            'date' => date('m/d/Y'),
+            'kategori' => $kategoris
+        ];
+        $pdf = PDF::loadview('kategoripdf', $data);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('Data Kategori.pdf', array("attachment"
+        => false));
+    }
+    public function kategoriExcel()
+    {
+        $kategoris = Kategori::get();
+        $data = [
+            'title' => 'LIST KATEGORI',
+            'date' => date('m/d/y'),
+            'kategori' => $kategoris
+        ];
+        return view('kategoriexcel', $data);
     }
 }

@@ -14,6 +14,7 @@ use Illuminate\Http\RedirectResponse;
 //import Http Request
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProductController extends Controller
 {
@@ -153,5 +154,29 @@ class ProductController extends Controller
         $product->delete();
         //redirect to index
         return redirect()->route('products.index')->with(['success' => 'Data Berhasil Dihapus!']);
+    }
+
+    public function printPdfproduct()
+    {
+        $products = product::get();
+        $data = [
+            'title' => 'LIST PRODUCT',
+            'date' => date('m/d/Y'),
+            'product' => $products
+        ];
+        $pdf = PDF::loadview('productpdf', $data);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('Data Product.pdf', array("attachment"
+        => false));
+    }
+    public function productExcel()
+    {
+        $products = product::get();
+        $data = [
+            'title' => 'LIST PRODUK',
+            'date' => date('m/d/y'),
+            'product' => $products
+        ];
+        return view('productexcel', $data);
     }
 }

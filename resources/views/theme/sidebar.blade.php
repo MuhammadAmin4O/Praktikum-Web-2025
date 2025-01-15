@@ -12,7 +12,7 @@
                     <div class="sb-nav-link-icon"><i class="fas fauser"></i></div>
                     Users
                 </a>
-                <a class="nav-link collapsed" href="#" data-bstoggle="collapse" data-bs-target="#collapseLayouts"
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
                     ariaexpanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="fas facolumns"></i></div>
                     Master Data
@@ -22,13 +22,14 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="/products">Product</a>
-                        <a class="nav-link" href="/category">Category</a>
-                        <a class="nav-link" href="/customer">Customer</a>
+                        <a class="nav-link" href="/categories">Category</a><a class="nav-link"
+                            href="/customers">Customer</a>
+                        <a class="nav-link" href="/units">Unit/Satuan</a>
                         <a class="nav-link" href="/supplier">Supplier</a>
                         <a class="nav-link" href="/transaction">Transaction</a>
                     </nav>
                 </div>
-                <a class="nav-link collapsed" href="#" data-bstoggle="collapse" data-bs-target="#collapsePages"
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                     ariaexpanded="false" aria-controls="collapsePages">
                     <div class="sb-nav-link-icon"><i class="fas fachart-area"></i></div>
                     Laporan
