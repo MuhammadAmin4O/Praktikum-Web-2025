@@ -38,6 +38,7 @@
         <tr>
             <th>No</th>
             <th>Gambar</th>
+            <th>Gambar</th>
             <th>Judul</th>
             <th>Deskripsi</th>
             <th>Harga</th>
